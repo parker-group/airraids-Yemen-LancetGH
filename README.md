@@ -21,7 +21,13 @@ We also pulled data on elevation from the [Shuttle Radar Topography Mission](htt
 
 **Model Code**
 
-We ran our model using the [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf) package in R version 4.0.4. Final model code was `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_scale + AR3mo_0LagCAT + ndvi_scale + surfWat_scale + temp_scale + s(PC1, k=-1) + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
+We ran our model using the [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf) package in R version 4.0.4. Per Table 2 in our paper, we ran a robustness test on our model using the following code:
+
+Model A: `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + AR3mo_0LagCAT + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
+
+Model B: `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_scale + AR3mo_0LagCAT + ndvi_scale + surfWat_scale + temp_scale + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
+
+Final model (Model C): `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_scale + AR3mo_0LagCAT + ndvi_scale + surfWat_scale + temp_scale + s(PC1, k=-1) + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
 `
 
 ## AirRaidsAggs.csv
