@@ -28,7 +28,7 @@ Model A: `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + AR3mo_0LagCAT + s(lon
 Model B: `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_scale + AR3mo_0LagCAT + ndvi_scale + surfWat_scale + temp_scale + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
 
 Final model (Model C): `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_scale + AR3mo_0LagCAT + ndvi_scale + surfWat_scale + temp_scale + s(PC1, k=-1) + s(lon,lat,bs="sos",k=15), family = nb, gamma=1.5, data=ModelVars, method="REML")`
-`
+
 
 ## AirRaidsAggs.csv
 This dataset contains different aggregations of air raids with varying lags. For each aggregation and lag combination, we included a numerical sum of air raids and the corresponsing category (Low, Intermediate, Medium, High, or Severe) based on quintiles for that specific aggregation. These aggregations were all rolling. We chose the 3 month aggregation with no lag based on model fit.
