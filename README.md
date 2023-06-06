@@ -32,5 +32,3 @@ Final model (Model C): `gam(case ~ s(week, k=-1) + s(logDensity, k=-1) + precip_
 
 ## AirRaidsAggs.csv
 This dataset contains different aggregations of air raids with varying lags. For each aggregation and lag combination, we included a numerical sum of air raids and the corresponsing category (Low, Intermediate, Medium, High, or Severe) based on quintiles for that specific aggregation. These aggregations were all rolling. We chose the 3 month aggregation with no lag based on model fit.
-
-Commercial use of either dataset is strictly prohibited.
